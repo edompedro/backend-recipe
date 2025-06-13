@@ -40,6 +40,7 @@ DATABASE_URL="your_mongodb_connection_string_here"
 > **Note:** For MongoDB with Prisma, you typically just need to generate the client:
 
 ```sh
+npx prisma db push
 npx prisma generate
 ```
 
