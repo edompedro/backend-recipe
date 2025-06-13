@@ -21,6 +21,9 @@ npm install
 
 ### 3. Configure the database
 
+This project uses MongoDB running in Docker.
+For instructions on setting up MongoDB with Docker, see the [MongoDB + Docker guide](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-community-with-docker/).
+
 Create a `.env` file in the root of the `backend-recipe` folder.  
 Copy the example file and set your MongoDB connection string:
 
