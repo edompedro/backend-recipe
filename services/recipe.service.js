@@ -7,7 +7,6 @@ const getAllRecipes = async () => {
     return recipes;
 
   } catch (error) {
-    console.error("Error fetching recipes:", error);
     throw new Error("Internal Server Error");
   }
 };
@@ -24,7 +23,6 @@ const getRecipeById = async (id) => {
     return recipe;
 
   } catch (error) {
-    console.error("Error fetching recipe:", error);
     throw new Error("Internal Server Error");
   }
 };
@@ -46,7 +44,6 @@ const createRecipe = async (data) => {
     return newRecipe;
 
   } catch (error) {
-    console.error("Error creating recipe:", error);
     throw new Error("Internal Server Error");
   }
 };
@@ -60,7 +57,6 @@ const updateRecipe = async (recipe) => {
     return updatedRecipe;
     
   } catch (error) {
-    console.error("Error updating recipe:", error);
     throw new Error("Internal Server Error");
   }
 };
