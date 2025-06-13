@@ -1,6 +1,8 @@
 # backend-recipe
 
-A simple backend for managing recipes using Node.js, Express, and Prisma with MongoDB.
+A Node.js backend for managing recipes, using Express and Prisma with MongoDB.
+
+---
 
 ## Getting Started
 
@@ -19,11 +21,8 @@ npm install
 
 ### 3. Configure the database
 
-This project uses MongoDB running in Docker.  
-For instructions on setting up MongoDB with Docker, see the [MongoDB + Docker guide](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-community-with-docker/).
-
 Create a `.env` file in the root of the `backend-recipe` folder.  
-Copy the contents of `.env.example` and set your MongoDB connection string:
+Copy the example file and set your MongoDB connection string:
 
 ```sh
 cp .env.example .env
@@ -35,9 +34,7 @@ Edit `.env` and set your `DATABASE_URL`:
 DATABASE_URL="your_mongodb_connection_string_here"
 ```
 
-### 4. Run database migrations (if needed)
-
-> **Note:** For MongoDB with Prisma, you typically just need to generate the client:
+### 4. Generate Prisma client
 
 ```sh
 npx prisma db push
@@ -64,15 +61,28 @@ npm start
 npx jest
 ```
 
-> **Note:** Make sure you have test files in the `tests/` directory.
-
 ---
 
-## Scripts
+## Overview of Packages and Third-Party Libraries
 
-- `npm run dev` — Start the server in development mode (with nodemon)
-- `npm start` — Start the server in production mode
-- `npx jest` — Run backend tests
+| Package                | Purpose & Reasoning                                                                                 |
+|------------------------|-----------------------------------------------------------------------------------------------------|
+| **express**            | Minimal and flexible Node.js web application framework for building APIs.                           |
+| **prisma**             | Modern ORM for Node.js and TypeScript, chosen for type safety, ease of use, and MongoDB support.    |
+| **@prisma/client**     | Auto-generated client for database access, tightly integrated with Prisma ORM.                      |
+| **dotenv**             | Loads environment variables from `.env` files, simplifying configuration management.                |
+| **nodemon**            | Automatically restarts the server on code changes during development for faster iteration.          |
+| **cors**               | Enables Cross-Origin Resource Sharing, allowing the frontend to communicate with the backend.        |
+| **jest** or **vitest** | Testing frameworks for writing and running backend tests (check `package.json` for which is used).   |
+| **supertest**          | HTTP assertions for integration testing of Express APIs.                                            |
+
+**Why these choices?**
+- **Express** is a widely adopted, minimal framework that makes API development straightforward.
+- **Prisma** provides a modern, type-safe, and easy-to-use ORM experience, with excellent support for MongoDB.
+- **dotenv** is the standard for managing environment variables in Node.js projects.
+- **Nodemon** improves developer productivity by auto-reloading the server.
+- **CORS** is essential for enabling secure cross-origin requests from the frontend.
+- **Jest/Vitest** and **Supertest** are industry standards for backend testing, ensuring code reliability.
 
 ---
 
@@ -84,6 +94,13 @@ npx jest
 - `services/` — Business logic and database access
 - `src/` — Main entry point
 - `tests/` — Test files
+
+---
+
+## Notes
+
+- Ensure your MongoDB instance is running and accessible at the URL specified in `.env`.
+- Run `npx prisma generate` after changing your Prisma schema.
 
 ---
 
