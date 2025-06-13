@@ -1,8 +1,7 @@
 import express from 'express';
-import { 
-    fetchAllRecipes, 
+import {
+    fetchAllRecipes,
     fetchRecipeById,
-    addRecipe,
     modifyRecipe,
 } from '../controllers/recipe.controller.js';
 

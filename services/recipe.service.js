@@ -27,27 +27,6 @@ const getRecipeById = async (id) => {
   }
 };
 
-const createRecipe = async (data) => {
-  const { name, description, ingredients, instructions, imageUrl, favorite } = data;
-
-  try {
-    const newRecipe = await prisma.recipe.create({
-      data: {
-        name,
-        description,
-        ingredients,
-        instructions,
-        imageUrl,
-        favorite,
-      },
-    });
-    return newRecipe;
-
-  } catch (error) {
-    throw new Error("Internal Server Error");
-  }
-};
-
 const updateRecipe = async (recipe) => {
   try {
     const updatedRecipe = await prisma.recipe.update({
@@ -55,15 +34,14 @@ const updateRecipe = async (recipe) => {
       data: { favorite: recipe.favorite },
     });
     return updatedRecipe;
-    
+
   } catch (error) {
     throw new Error("Internal Server Error");
   }
 };
 
 export {
-    getAllRecipes,
-    getRecipeById,
-    createRecipe,
-    updateRecipe
+  getAllRecipes,
+  getRecipeById,
+  updateRecipe
 }

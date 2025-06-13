@@ -1,19 +1,8 @@
 import {
     getAllRecipes,
-    createRecipe,
     getRecipeById,
     updateRecipe,
 } from "../services/recipe.service.js";
-
-// Add recipe
-const addRecipe = async (req, res) => {
-    try {
-        const recipe = await createRecipe(req.body);
-        res.status(201).json(recipe);
-    } catch (error) {
-        res.status(500).json({ error: "Internal Server Error" });
-    }
-};
 
 // Get all recipes
 const fetchAllRecipes = async (req, res) => {
@@ -21,7 +10,6 @@ const fetchAllRecipes = async (req, res) => {
         const recipes = await getAllRecipes();
         res.status(200).json(recipes);
     } catch (error) {
-        console.error("Error fetching recipes:", error);
         res.status(500).json({ error: "Internal Server Error" });
     }
 };
@@ -58,7 +46,6 @@ const modifyRecipe = async (req, res) => {
 };
 
 export {
-    addRecipe,
     fetchAllRecipes,
     fetchRecipeById,
     modifyRecipe,
